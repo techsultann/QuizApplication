@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/home_dest">
+
+    <fragment
+        android:id="@+id/home_dest"
+        android:name="com.techsultan.quizapplication.fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_dest_to_questionOne"
+            app:destination="@id/questionOne"
+            app:popUpTo="@id/home_dest"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizResultFragment"
+        android:name="com.techsultan.quizapplication.fragments.QuizResultFragment"
+        android:label="Quiz Result"
+        tools:layout="@layout/fragment_quiz_result" >
+        <action
+            android:id="@+id/action_quizResultFragment_to_home_dest"
+            app:destination="@id/home_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionTwo"
+        android:name="com.techsultan.quizapplication.fragments.questionfragment.QuestionTwo"
+        android:label="fragment_question_two"
+        tools:layout="@layout/fragment_question_two" >
+        <action
+            android:id="@+id/action_questionTwo_to_questionThree"
+            app:destination="@id/questionThree"
+            app:popUpTo="@id/questionTwo"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionOne"
+        android:name="com.techsultan.quizapplication.fragments.questionfragment.QuestionOne"
+        android:label="fragment_question_one"
+        tools:layout="@layout/fragment_question_one" >
+        <action
+            android:id="@+id/action_questionOne_to_questionTwo"
+            app:destination="@id/questionTwo"
+            app:popUpTo="@id/questionOne"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionThree"
+        android:name="com.techsultan.quizapplication.fragments.questionfragment.QuestionThree"
+        android:label="fragment_question_three"
+        tools:layout="@layout/fragment_question_three" >
+        <action
+            android:id="@+id/action_questionThree_to_quizResultFragment"
+            app:destination="@id/quizResultFragment"
+            app:popUpTo="@id/questionThree"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
