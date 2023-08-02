@@ -45,12 +45,9 @@ class QuizResultFragment : Fragment() {
         }
 
         val quizResult = viewModel.getTotalCorrectAnswers()
-        binding.totalScoreTv.text = quizResult.toString()
+        binding.currentScoreTv.text = quizResult.toString()
 
-        /*viewModel.score.observe(viewLifecycleOwner, Observer { score ->
 
-            binding.totalScoreTv.text = score.toString()
-        })*/
     }
 
 }

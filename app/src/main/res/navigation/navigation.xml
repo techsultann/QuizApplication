@@ -13,8 +13,7 @@
         <action
             android:id="@+id/action_home_dest_to_questionOne"
             app:destination="@id/questionOne"
-            app:popUpTo="@id/home_dest"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/quizResultFragment"
@@ -23,7 +22,9 @@
         tools:layout="@layout/fragment_quiz_result" >
         <action
             android:id="@+id/action_quizResultFragment_to_home_dest"
-            app:destination="@id/home_dest" />
+            app:destination="@id/home_dest"
+            app:popUpTo="@id/quizResultFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/questionTwo"

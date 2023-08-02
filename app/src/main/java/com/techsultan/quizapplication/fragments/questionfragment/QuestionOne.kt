@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.techsultan.quizapplication.MainActivity
@@ -47,6 +48,9 @@ class QuestionOne : Fragment() {
                 viewModel.goToNextQuestion()
                 findNavController().navigate(R.id.action_questionOne_to_questionTwo)
 
+            } else {
+
+                Toast.makeText(context, "Select an answer", Toast.LENGTH_SHORT).show()
             }
 
         }

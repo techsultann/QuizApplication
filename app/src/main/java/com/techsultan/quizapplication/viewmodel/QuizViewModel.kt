@@ -19,9 +19,7 @@ class QuizViewModel(
     val currentQuestionIndex: LiveData<Int>
         get() = _currentQuestionIndex
 
-    private val _score = MutableLiveData(0)
-    val score: LiveData<Int>
-        get() = _score
+    private var score = MutableLiveData(0)
 
     private val _quizFinished = MutableLiveData(false)
     val quizFinished: LiveData<Boolean>
@@ -63,17 +61,6 @@ class QuizViewModel(
         )
     )
 
-   /* // Function to get a random question from the available questions list
-    fun getRandomQuestion(): Question? {
-        return if (availableQuestions.isEmpty()) {
-            null // Return null if there are no more questions available
-        } else {
-            val randomIndex = Random.nextInt(0, availableQuestions.size)
-            val randomQuestion = availableQuestions[randomIndex]
-            availableQuestions.removeAt(randomIndex) // Remove the selected question from the list to avoid repetition
-            randomQuestion
-        }
-    }*/
 
     init {
         questions.shuffle()
@@ -109,7 +96,7 @@ class QuizViewModel(
     fun onOptionSelected(selectedIndex: Int) {
         val currentQuestion = getCurrentQuestion()
         if (currentQuestion.correctOption == selectedIndex) {
-            _score.value = (_score.value ?: 0) + 1
+            score.value = (score.value ?: 0) + 1
         }
 
         val nextIndex = (currentQuestionIndex.value ?: 0) + 1
@@ -122,7 +109,6 @@ class QuizViewModel(
 
     fun resetQuiz() {
         _currentQuestionIndex.value = 0
-        _score.value = 0
         questions.shuffle() // Randomly shuffle the questions again for the next quiz
         _quizFinished.value = false
     }
